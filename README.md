@@ -4,8 +4,6 @@ This a repo that contains my solutions to the blind75 at leetcode!
 
 **Link to project:** http://recruiters-love-seeing-live-demos.com/
 
-![alt tag](http://placecorgi.com/1200/650)
-
 ## How It's Made:
 
 **Tech used:** JavaScript
