@@ -1,5 +1,5 @@
 // Valid Anagram
-
+// O(n * m)
 var isAnagram = function(s, t) {
     if(s.length !== t.length) return false
     let container = []
