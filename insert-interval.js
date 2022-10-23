@@ -1,5 +1,5 @@
 // 57. Insert Interval
-
+// O(n) because traversing the list just once
 var insert = function(intervals, newInterval) {
     //if there is no array, then the answer is just the addition
     if(intervals.length === 0) return [newInterval]

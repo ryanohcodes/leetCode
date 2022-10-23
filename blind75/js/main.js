@@ -1,48 +1,16 @@
 var insert = function(intervals, newInterval) {
-    let startOfNewInterval = newInterval[0]
-    let endOfNewInterval = newInterval[1]
-    // insert at this index, remove this many, add this
-    let spliceStart 
-    let spliceEnd
-    let insert = []
-    let removal 
-    let counter = 0
+    if(intervals.length === 0) return newInterval
+    let ans = []
+    let startTemp = []
     for(let i = 0; i < intervals.length;i++){
-        if(insert.length > 0) counter++
-        // look for starting insertion
-        if(startOfNewInterval >= intervals[i][0] && startOfNewInterval <= intervals[i][1]){
-            spliceStart = i
-            //[3,5] you are 4, become 3
-            //[3,5] you are 3, become 3
-            //[3,5] you are 5, become 3
-            insert[0] = intervals[i][0]
-            counter++
-        }
-        //[8,10] you are 8 or 9 or 10
-        
-        if(endOfNewInterval >= intervals[i][0] && endOfNewInterval <= intervals[i][1]){
-            spliceEnd = i
-            insert[1] = intervals[i][1]
-            break
-        }
-        
-        // [6,9] you are 5
-        if(endOfNewInterval < intervals[i][0]){
-            if(insert == false){
-                insert = newInterval
-                removal = 0
-            }
-            else{
-                insert[1] = endOfNewInterval
-                spliceEnd = i
-            }
-            
-            break
-        }
-        // non-overlap
+        if(newInterval[0] > intervals[i][1]) ans.push(intervals[i])    
+        else if(newInterval[0] >= intervals[i][0] && newInterval[0] <= intervals[i][1]) startTemp.push(Math.min(intervals[i][0],newInterval[0]))
+        else if(newInterval[1] < intervals[i][0]) startTemp.push(newInterval[1])
+        else if(newInterval[1] <= intervals[i][0] && newInterval[1] <= intervals[i][1]) startTemp.push(Math.max(intervals[i][1],newInterval[1]))
+        if(startTemp.length === 2) ans.push(startTemp)
+        if(intervals[i][0] > newInterval[1]) ans.push(intervals[i])    
     }
-    if(spliceStart != undefined && spliceEnd != undefined) removal = spliceEnd - spliceStart
-    intervals.splice(spliceStart, counter,insert)
+    intervals = ans
     return intervals
 };
 var spiralOrder = function(matrix) {
