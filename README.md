@@ -4,7 +4,7 @@ This a repo that contains my solutions to the blind75 at leetcode!
 
 ## How It's Made:
 
-**Tech used:** JavaScript
+**Tech used:** JavaScript, Typescript, and Java
 
 All solutions are written in JS.
 
