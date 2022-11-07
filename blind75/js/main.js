@@ -1,3 +1,49 @@
+// input = [1,5,2,1] => 1,2,5
+//[4,2,2,2,2,3,2,2,2] => [2,3,4]
+
+
+
+
+
+function mergeSort(arr){
+    if(arr.length === 1) return arr
+  
+    let left = mergeSort(arr.slice(0,Math.floor(arr.length/2)))
+    let right = mergeSort(arr.slice(Math.floor(arr.length/2)))
+  
+    return merge2(left,right)
+  }
+  
+  function merge2(left,right){
+    let arr = []
+    let i = 0
+    let j = 0
+  
+    while(i < left.length && j < right.length){
+      if(left[i] < right[j]){
+        arr.push(left[i])
+        i++
+      }else{
+        arr.push(right[j])
+        j++
+      }
+    }
+    if(i === left.length) {
+        while(j < right.length){
+            arr.push(right[j])
+            j++
+        }
+    }
+    else  {
+        while(i < left.length){
+            arr.push(left[i])
+            i++
+        }
+    }
+  
+    return arr
+  }
+
 var insert = function(intervals, newInterval) {
     if(intervals.length === 0) return newInterval
     let ans = []
