@@ -16,5 +16,5 @@ Some of the fun is writing the first solution coming to mind and then optimizing
 
 My instinct is always go for the O(N^2) solution because it is easier to visualize. As I am working through the challengers, I begin to see why certain algorithms are more efficient.
 
-Recursion may not always be the optimal choice.
+Recursion may not always be the optimal choice. Dynamic progamming is a way to improve recursive run times.
 
